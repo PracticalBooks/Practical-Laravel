@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasClassicSetter;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use HasClassicSetter;
+
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
