@@ -25,12 +25,9 @@ class AdminProductController extends Controller
             'image' => 'image',
         ]);
 
-        $newProduct = new Product();
-        $newProduct->setName($request->input('name'));
-        $newProduct->setDescription($request->input('description'));
-        $newProduct->setPrice($request->input('price'));
-        $newProduct->setImage("game.png");
-        $newProduct->save();
+        $creationData = $request->only(["name","description","price"]);
+        $creationData["image"] = "game.png";
+        Product::create($creationData);
 
         return back();
     }

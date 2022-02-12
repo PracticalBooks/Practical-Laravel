@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\HasClassicSetter;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use HasClassicSetter;
+
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
@@ -16,6 +19,13 @@ class Product extends Model
      * $this->attributes['created_at'] - timestamp - contains the product creation date
      * $this->attributes['updated_at'] - timestamp - contains the product update date
      */
+
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'image',
+    ];
 
     public function getId()
     {
